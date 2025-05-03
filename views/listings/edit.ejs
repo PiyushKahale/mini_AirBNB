@@ -1,0 +1,61 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+
+<div class="row">
+    <div class="col-10 offset-1">
+    <h3 class="mt-4">Edit Listing</h3>
+
+    <form action="/listings/<%= listing._id %>?_method=PUT" method="POST" novalidate class="needs-validation" enctype="multipart/form-data">
+
+        <div class="mb-2">
+            <label for="title" class="form-label">Title</label>
+            <input name="listing[title]" type="text" value="<%= listing.title %>" class="form-control" required>
+            
+        </div>
+
+        
+        <div class="mb-2">
+            <label for="description" class="form-label">Description</label>
+            <textarea name="listing[description]" type="text" class="form-control" required><%= listing.description %></textarea>
+            <div class="invalid-feedback">Please enter a short description...!</div>
+        </div>
+
+        <div class="mb-3">
+            <img src="<%= ogUrl %>" alt="" style="height: 10rem; width: 9rem;">
+        </div>
+        
+
+        <div class="mb-2">
+            <label for="image" class="form-label">Upload New Image</label>
+            <input name="listing[image]" type="file" class="form-control">
+        </div>
+
+        <div class="mb-2 row">
+
+            <div class="col-md-4">
+                <label for="price" class="form-label">Price</label>
+            <input name="listing[price]" type="number" value="<%= listing.price %>" class="form-control" required>
+            <div class="invalid-feedback">Enter a valid price...!</div>
+            </div>
+            
+            <div class="col-md-8">
+                <label for="country" class="form-label">Country</label>
+                <input name="listing[country]" type="text" value="<%= listing.country %>" class="form-control" required>
+            </div>
+            
+        </div>
+
+
+        <div class="mb-2">
+            <label for="location" class="form-label">Location</label>
+            <input name="listing[location]" type="text" value="<%= listing.location %>" class="form-control" required>
+        </div>
+
+        <div class="mb-2">
+            
+        </div>
+
+        <button class="mb-4 mt-3 btn btn-dark" style="background-color: #fe424d; border: none;">Edit</button>
+    </form>
+    </div>
+</div>
